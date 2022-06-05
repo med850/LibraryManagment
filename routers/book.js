@@ -4,6 +4,8 @@ const router=require('express').Router()
 
 
 
-router.get('/',BookController.BookController)
+router.get('/',BookController.limitBooksController)
+
+router.get('/books',BookController.allBooksController)
 
 module.exports=router

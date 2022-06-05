@@ -22,12 +22,12 @@ var url ='mongodb://localhost:27017/Library'
 
 
 
-exports.getallbooks=()=>{
+exports.getLimitBooks=()=>{
 
    return new Promise((resolve,reject)=>{
     mongoose.connect(url, {useNewUrlParser: true,useUnifiedTopology: true }).then(()=>{
          
-       return Book.find({})
+       return Book.find({}).limit(3)
 
 
     }).then(books=>{
@@ -38,3 +38,20 @@ exports.getallbooks=()=>{
 
 
 }
+
+exports.getAllBooks=()=>{
+
+    return new Promise((resolve,reject)=>{
+     mongoose.connect(url, {useNewUrlParser: true,useUnifiedTopology: true }).then(()=>{
+          
+        return Book.find({})
+ 
+ 
+     }).then(books=>{
+         mongoose.disconnect()
+         resolve(books)
+     }).catch(err=>reject(err))
+    })
+ 
+ 
+ }

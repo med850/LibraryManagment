@@ -2,11 +2,21 @@
 const BookModel = require('../models/book')
 
 
-exports.BookController=(req,res,next)=>{
+exports.limitBooksController=(req,res,next)=>{
 
 
-    BookModel.getallbooks().then(books=>{
+    BookModel.getLimitBooks().then(books=>{
         res.render('index',{books:books})
+    })
+
+
+}
+
+exports.allBooksController=(req,res,next)=>{
+
+
+    BookModel.getAllBooks().then(books=>{
+        res.render('books',{books:books})
     })
 
 
