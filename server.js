@@ -2,7 +2,7 @@ const express  = require('express')
 const res = require('express/lib/response')
 const path = require('path')
 
-
+const routerBook = require('./routers/book')
 const app = express()
 
 app.use(express.static(path.join(__dirname,'assets')))
@@ -12,11 +12,7 @@ app.set('views', 'views')
 
 
 
-app.get('/', (req,res,next)=>{
-
-   // res.send('Library Management')
-   res.render('index')
-})
+app.use('/', routerBook)
 
 
 
