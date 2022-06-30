@@ -23,6 +23,14 @@ app.get('/contact', (req,res,next)=>{
 
 
 
+app.get('/details', (req,res,next)=>{
+
+   res.render('details')
+})
+
+
+
+
 
 app.get('/about', (req,res,next)=>{
 
